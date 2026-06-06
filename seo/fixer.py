@@ -21,7 +21,13 @@ def call_llm(prompt: str) -> str | None:
             text=True,
             check=True
         )
-        return result.stdout.strip()
+        output = result.stdout.strip()
+
+        # Remove thinking blocks (Thinking... ...done thinking.)
+        if "Thinking..." in output and "...done thinking." in output:
+            output = output.split("...done thinking.")[-1].strip()
+
+        return output
     except Exception as e:
         print(f"DEBUG: LLM Call Failed: {e}")
         return None
