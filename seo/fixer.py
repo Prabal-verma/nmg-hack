@@ -7,6 +7,7 @@ import pandas as pd
 import subprocess
 import os
 import csv
+import time
 
 # Get the model from env or default to qwen3.5:9b
 MODEL = os.environ.get("RADAR_MODEL", "qwen3.5:9b")
@@ -47,16 +48,13 @@ def fix_titles(df: pd.DataFrame, issues: list[dict]) -> list[dict]:
         h1 = row.get('H1-1', 'No H1 found')
 
         prompt = (
-            f"You are an SEO expert. Rewrite the page title for the following URL to be highly relevant, "
-            f"click-worthy, and optimized for search engines.\n\n"
-            f"URL: {url}\n"
-            f"Current Title: {old_title}\n"
-            f"H1 Header: {h1}\n\n"
-            f"Constraint: The new title MUST be under 60 characters. "
-            f"Provide ONLY the new title text, no explanations or quotes."
+            f"You are an SEO expert. Rewrite this title to be under 60 characters and "
+            f"highly relevant to the URL. URL: {url}. Old Title: {old_title}. "
+            f"Return ONLY the new title text."
         )
 
         new_title = call_llm(prompt)
+        time.sleep(0.5)
 
         # Basic validation: retry if too long (simple version)
         if len(new_title) > 60:
