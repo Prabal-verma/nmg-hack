@@ -48,8 +48,8 @@ def seo_load(export_dir: str) -> dict:
 
 
 def _guess_site(rows):
-    if not rows: return "unknown"
-    addr = rows[0].get("Address", "")
+    if rows.empty: return "unknown"
+    addr = rows.iloc[0].get("Address", "")
     try:
         from urllib.parse import urlparse
         return urlparse(addr).netloc or "unknown"
