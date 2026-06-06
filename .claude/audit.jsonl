@@ -117,3 +117,66 @@
 {"ts":"2026-06-06T09:04:08.891Z","session_id":"6ffb47db-e003-4d92-9d15-74309a844a76","hook":"SubagentStop","tool":"","command":"","exit_code":"","output_preview":""}
 {"ts":"2026-06-06T09:07:23.105Z","session_id":"9e121729-7b70-4f45-8737-d35356f877d1","hook":"SessionStart","tool":"","command":"","exit_code":"","output_preview":""}
 {"ts":"2026-06-06T09:08:05.831Z","session_id":"a44dde2d-6b43-493e-a8a5-c40022fc5969","hook":"SessionStart","tool":"","command":"","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:08:59.498Z","session_id":"a44dde2d-6b43-493e-a8a5-c40022fc5969","hook":"UserPromptSubmit","tool":"","command":"python run.py sample-export/","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:09:03.638Z","session_id":"a44dde2d-6b43-493e-a8a5-c40022fc5969","hook":"PreToolUse","tool":"Bash","command":"python run.py sample-export/","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:11:07.107Z","session_id":"a44dde2d-6b43-493e-a8a5-c40022fc5969","hook":"UserPromptSubmit","tool":"","command":"python run.py sample-export/","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:11:14.024Z","session_id":"a44dde2d-6b43-493e-a8a5-c40022fc5969","hook":"UserPromptSubmit","tool":"","command":"python run.py sample-export/","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:11:21.953Z","session_id":"a44dde2d-6b43-493e-a8a5-c40022fc5969","hook":"PreToolUse","tool":"Bash","command":"python run.py sample-export/","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:13:07.327Z","session_id":"8f8a4877-05dd-4e1d-9af4-8429316ead4b","hook":"SessionStart","tool":"","command":"","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:13:09.320Z","session_id":"8f8a4877-05dd-4e1d-9af4-8429316ead4b","hook":"UserPromptSubmit","tool":"","command":"python run.py sample-export/","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:13:13.603Z","session_id":"8f8a4877-05dd-4e1d-9af4-8429316ead4b","hook":"PreToolUse","tool":"Bash","command":"python run.py sample-export/","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:15:24.893Z","session_id":"86900ba6-d7c9-43b8-aad4-af2e29e1ee65","hook":"SessionStart","tool":"","command":"","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:15:31.393Z","session_id":"86900ba6-d7c9-43b8-aad4-af2e29e1ee65","hook":"UserPromptSubmit","tool":"","command":"python run.py sample-export/","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:15:35.172Z","session_id":"86900ba6-d7c9-43b8-aad4-af2e29e1ee65","hook":"PreToolUse","tool":"Bash","command":"python run.py sample-export/","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:17:36.732Z","session_id":"86900ba6-d7c9-43b8-aad4-af2e29e1ee65","hook":"PostToolUse","tool":"Bash","command":"python run.py sample-export/","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:17:46.576Z","session_id":"86900ba6-d7c9-43b8-aad4-af2e29e1ee65","hook":"Stop","tool":"","command":"","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:17:46.627Z","session_id":"86900ba6-d7c9-43b8-aad4-af2e29e1ee65","hook":"UserPromptSubmit","tool":"","command":"python run.py sample-export/","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:17:50.105Z","session_id":"86900ba6-d7c9-43b8-aad4-af2e29e1ee65","hook":"PreToolUse","tool":"Read","command":"/tmp/claude-1000/-home-poxy-Developer-nmg/86900ba6-d7c9-43b8-aad4-af2e29e1ee65/tasks/b1e5xjzb2.output","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:17:50.134Z","session_id":"86900ba6-d7c9-43b8-aad4-af2e29e1ee65","hook":"PostToolUse","tool":"Read","command":"/tmp/claude-1000/-home-poxy-Developer-nmg/86900ba6-d7c9-43b8-aad4-af2e29e1ee65/tasks/b1e5xjzb2.output","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:17:55.089Z","session_id":"86900ba6-d7c9-43b8-aad4-af2e29e1ee65","hook":"PreToolUse","tool":"TaskOutput","command":"","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:17:55.108Z","session_id":"86900ba6-d7c9-43b8-aad4-af2e29e1ee65","hook":"PostToolUse","tool":"TaskOutput","command":"","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:17:58.296Z","session_id":"86900ba6-d7c9-43b8-aad4-af2e29e1ee65","hook":"PreToolUse","tool":"Bash","command":"ls -R outputs/","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:17:58.348Z","session_id":"86900ba6-d7c9-43b8-aad4-af2e29e1ee65","hook":"PostToolUse","tool":"Bash","command":"ls -R outputs/","exit_code":"","output_preview":"outputs/:\nreport.html\nreport.json"}
+{"ts":"2026-06-06T09:18:01.370Z","session_id":"86900ba6-d7c9-43b8-aad4-af2e29e1ee65","hook":"PreToolUse","tool":"Read","command":"/home/poxy/Developer/nmg/outputs/report.json","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:18:01.396Z","session_id":"86900ba6-d7c9-43b8-aad4-af2e29e1ee65","hook":"PostToolUse","tool":"Read","command":"/home/poxy/Developer/nmg/outputs/report.json","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:18:47.342Z","session_id":"86900ba6-d7c9-43b8-aad4-af2e29e1ee65","hook":"PreToolUse","tool":"Read","command":"/home/poxy/Developer/nmg/seo/detector.py","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:18:47.369Z","session_id":"86900ba6-d7c9-43b8-aad4-af2e29e1ee65","hook":"PostToolUse","tool":"Read","command":"/home/poxy/Developer/nmg/seo/detector.py","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:19:28.241Z","session_id":"86900ba6-d7c9-43b8-aad4-af2e29e1ee65","hook":"PreToolUse","tool":"EnterPlanMode","command":"","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:19:28.245Z","session_id":"86900ba6-d7c9-43b8-aad4-af2e29e1ee65","hook":"PostToolUse","tool":"EnterPlanMode","command":"","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:22:13.186Z","session_id":"86900ba6-d7c9-43b8-aad4-af2e29e1ee65","hook":"UserPromptSubmit","tool":"","command":"python run.py sample-export/","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:23:29.642Z","session_id":"86900ba6-d7c9-43b8-aad4-af2e29e1ee65","hook":"UserPromptSubmit","tool":"","command":"python run.py sample-export/","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:24:32.802Z","session_id":"86900ba6-d7c9-43b8-aad4-af2e29e1ee65","hook":"PreToolUse","tool":"Bash","command":"python run.py sample-export/","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:25:11.873Z","session_id":"86900ba6-d7c9-43b8-aad4-af2e29e1ee65","hook":"PreToolUse","tool":"Read","command":"/home/poxy/Developer/nmg/run.py","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:25:11.891Z","session_id":"86900ba6-d7c9-43b8-aad4-af2e29e1ee65","hook":"PostToolUse","tool":"Read","command":"/home/poxy/Developer/nmg/run.py","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:25:37.395Z","session_id":"86900ba6-d7c9-43b8-aad4-af2e29e1ee65","hook":"UserPromptSubmit","tool":"","command":"python run.py sample-export/","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:26:28.450Z","session_id":"86900ba6-d7c9-43b8-aad4-af2e29e1ee65","hook":"UserPromptSubmit","tool":"","command":"python run.py sample-export/","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:46:57.617Z","session_id":"86900ba6-d7c9-43b8-aad4-af2e29e1ee65","hook":"UserPromptSubmit","tool":"","command":"python run.py sample-export/","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:48:16.286Z","session_id":"86900ba6-d7c9-43b8-aad4-af2e29e1ee65","hook":"UserPromptSubmit","tool":"","command":"python run.py sample-export/","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:48:37.609Z","session_id":"86900ba6-d7c9-43b8-aad4-af2e29e1ee65","hook":"UserPromptSubmit","tool":"","command":"python run.py sample-export/","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:49:09.839Z","session_id":"86900ba6-d7c9-43b8-aad4-af2e29e1ee65","hook":"UserPromptSubmit","tool":"","command":"python run.py sample-export/","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:50:34.315Z","session_id":"86900ba6-d7c9-43b8-aad4-af2e29e1ee65","hook":"UserPromptSubmit","tool":"","command":"python run.py sample-export/","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:50:45.019Z","session_id":"86900ba6-d7c9-43b8-aad4-af2e29e1ee65","hook":"UserPromptSubmit","tool":"","command":"hi","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:52:36.393Z","session_id":"4aabd79c-fb0a-4eb6-844d-5aba335f9914","hook":"SessionStart","tool":"","command":"","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:52:40.187Z","session_id":"4aabd79c-fb0a-4eb6-844d-5aba335f9914","hook":"UserPromptSubmit","tool":"","command":"hi","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:52:46.496Z","session_id":"4aabd79c-fb0a-4eb6-844d-5aba335f9914","hook":"Stop","tool":"","command":"","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:52:48.431Z","session_id":"4aabd79c-fb0a-4eb6-844d-5aba335f9914","hook":"UserPromptSubmit","tool":"","command":"python run.py sample-export/","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:54:06.103Z","session_id":"4aabd79c-fb0a-4eb6-844d-5aba335f9914","hook":"UserPromptSubmit","tool":"","command":"hi","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T09:55:21.536Z","session_id":"4aabd79c-fb0a-4eb6-844d-5aba335f9914","hook":"UserPromptSubmit","tool":"","command":"hi","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T10:01:04.759Z","session_id":"7a4ef516-2036-4d64-8648-e724fc9252ab","hook":"SessionStart","tool":"","command":"","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T10:01:09.014Z","session_id":"7a4ef516-2036-4d64-8648-e724fc9252ab","hook":"UserPromptSubmit","tool":"","command":"hi","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T10:02:38.132Z","session_id":"7a4ef516-2036-4d64-8648-e724fc9252ab","hook":"UserPromptSubmit","tool":"","command":"python run.py sample-export/","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T10:02:42.555Z","session_id":"7a4ef516-2036-4d64-8648-e724fc9252ab","hook":"UserPromptSubmit","tool":"","command":"hi","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T10:03:20.674Z","session_id":"7a4ef516-2036-4d64-8648-e724fc9252ab","hook":"UserPromptSubmit","tool":"","command":"hi","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T10:03:27.351Z","session_id":"7a4ef516-2036-4d64-8648-e724fc9252ab","hook":"UserPromptSubmit","tool":"","command":"hi","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T10:03:31.367Z","session_id":"7a4ef516-2036-4d64-8648-e724fc9252ab","hook":"UserPromptSubmit","tool":"","command":"hi","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T10:06:03.150Z","session_id":"85861472-0de3-4144-8667-8446958fcb18","hook":"SessionStart","tool":"","command":"","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T10:06:05.687Z","session_id":"85861472-0de3-4144-8667-8446958fcb18","hook":"UserPromptSubmit","tool":"","command":"hi","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T10:06:20.477Z","session_id":"85861472-0de3-4144-8667-8446958fcb18","hook":"Stop","tool":"","command":"","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T10:06:20.534Z","session_id":"85861472-0de3-4144-8667-8446958fcb18","hook":"UserPromptSubmit","tool":"","command":"python run.py sample-export/","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T10:06:25.359Z","session_id":"85861472-0de3-4144-8667-8446958fcb18","hook":"PreToolUse","tool":"Bash","command":"python run.py sample-export/","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T10:08:01.624Z","session_id":"85861472-0de3-4144-8667-8446958fcb18","hook":"SubagentStop","tool":"","command":"","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T10:08:03.859Z","session_id":"85861472-0de3-4144-8667-8446958fcb18","hook":"PostToolUse","tool":"Bash","command":"python run.py sample-export/","exit_code":"","output_preview":"[seo] dashboard: http://localhost:7700\n\n=== SEO AUDIT RESULT ===\nSite         : nmgtechnologies.com  (456 URLs)\nTotal issues : 12  (High 2 / Medium 5 / Low 5)\nWrote outputs/report.json and outputs/rep"}
+{"ts":"2026-06-06T10:08:10.024Z","session_id":"85861472-0de3-4144-8667-8446958fcb18","hook":"PreToolUse","tool":"Read","command":"/home/poxy/Developer/nmg/outputs/report.json","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T10:08:10.051Z","session_id":"85861472-0de3-4144-8667-8446958fcb18","hook":"PostToolUse","tool":"Read","command":"/home/poxy/Developer/nmg/outputs/report.json","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T10:08:20.592Z","session_id":"85861472-0de3-4144-8667-8446958fcb18","hook":"PreToolUse","tool":"Read","command":"/home/poxy/Developer/nmg/seo/detector.py","exit_code":"","output_preview":""}
+{"ts":"2026-06-06T10:08:20.606Z","session_id":"85861472-0de3-4144-8667-8446958fcb18","hook":"PostToolUse","tool":"Read","command":"/home/poxy/Developer/nmg/seo/detector.py","exit_code":"","output_preview":""}
