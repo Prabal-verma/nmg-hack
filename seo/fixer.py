@@ -12,18 +12,19 @@ import time
 # Get the model from env or default to sonnet
 MODEL = os.environ.get("RADAR_MODEL", "sonnet")
 
-def call_llm(prompt: str) -> str:
-    """Calls the cloud model via the claude CLI."""
+def call_llm(prompt: str) -> str | None:
     try:
-        # We call the claude CLI directly
-        # This uses your authenticated cloud session
+        # It will use the cloud model seamlessly through the Ollama CLI
         result = subprocess.run(
-            ["claude", "--model", MODEL, "-p", prompt],
-            capture_output=True, text=True, check=True
+            ["ollama", "run", MODEL, prompt],
+            capture_output=True,
+            text=True,
+            check=True
         )
         return result.stdout.strip()
     except Exception as e:
-        return f"Cloud LLM Error: {e}"
+        print(f"DEBUG: LLM Call Failed: {e}")
+        return None
 
 def fix_titles(df: pd.DataFrame, issues: list[dict]) -> list[dict]:
     """
