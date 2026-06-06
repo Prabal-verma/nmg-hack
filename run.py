@@ -28,7 +28,7 @@ def main():
     args = ap.parse_args()
 
     if not args.no_dashboard:
-        server.start_dashboard()
+        # server.start_dashboard()
         print(f"[seo] dashboard: http://localhost:{server.PORT}", flush=True)
         time.sleep(1)
 

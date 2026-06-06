@@ -12,23 +12,18 @@ import time
 # Get the model from env or default to qwen3.5:9b
 MODEL = os.environ.get("RADAR_MODEL", "qwen3.5:9b")
 
-def call_llm(prompt: str) -> str | None:
-    """Calls the local Ollama model for a response. Returns None on failure."""
+def call_llm(prompt: str) -> str:
+    """Calls the cloud model via the claude CLI."""
     try:
-        # Debug: Print the command being run
-        print(f"DEBUG: Running: ollama run {MODEL} '{prompt[:50]}...'")
-
+        # We call the claude CLI directly instead of ollama
+        # This uses your authenticated cloud session
         result = subprocess.run(
-            ["ollama", "run", MODEL, prompt],
-            capture_output=True,
-            text=True,
-            encoding="utf-8",
-            check=True
+            ["claude", "run", MODEL, prompt], 
+            capture_output=True, text=True, check=True
         )
         return result.stdout.strip()
     except Exception as e:
-        print(f"DEBUG: LLM Call Failed: {e}")
-        return None
+        return f"Cloud LLM Error: {e}"
 
 def fix_titles(df: pd.DataFrame, issues: list[dict]) -> list[dict]:
     """
