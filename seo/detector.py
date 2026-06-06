@@ -82,9 +82,9 @@ def detect(df: pd.DataFrame) -> list[dict]:
     add("meta_description_too_long", "Low", df_idx200[too_long_meta_mask]['Address'].tolist(), "Meta descriptions likely truncated in search results.")
 
     # --- H1 ---
-    # missing_h1: H1-1 empty on a 200 page
-    missing_h1_urls = df[is_200 & (df['H1-1'].isna() | (df['H1-1'].str.strip() == ''))]['Address'].tolist()
-    add("missing_h1", "Medium", missing_h1_urls, "200 pages missing an H1 tag.")
+    # missing_h1: H1-1 empty on an indexable 200 HTML page
+    missing_h1_urls = df_idx200[df_idx200['H1-1'].isna() | (df_idx200['H1-1'].str.strip() == '')]['Address'].tolist()
+    add("missing_h1", "Medium", missing_h1_urls, "Indexable HTML pages missing an H1 tag.")
 
     # duplicate_h1: same H1-1 on 2+ indexable URLs
     h1_df = df[is_html & is_indexable].copy()
