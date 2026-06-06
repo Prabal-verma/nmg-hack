@@ -9,16 +9,16 @@ import os
 import csv
 import time
 
-# Get the model from env or default to qwen3.5:9b
-MODEL = os.environ.get("RADAR_MODEL", "qwen3.5:9b")
+# Get the model from env or default to sonnet
+MODEL = os.environ.get("RADAR_MODEL", "sonnet")
 
 def call_llm(prompt: str) -> str:
     """Calls the cloud model via the claude CLI."""
     try:
-        # We call the claude CLI directly instead of ollama
+        # We call the claude CLI directly
         # This uses your authenticated cloud session
         result = subprocess.run(
-            ["claude", "run", MODEL, prompt], 
+            ["claude", "--model", MODEL, "-p", prompt],
             capture_output=True, text=True, check=True
         )
         return result.stdout.strip()
