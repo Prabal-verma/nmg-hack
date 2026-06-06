@@ -15,6 +15,9 @@ MODEL = os.environ.get("RADAR_MODEL", "qwen3.5:9b")
 def call_llm(prompt: str) -> str:
     """Calls the local Ollama model for a response."""
     try:
+        # Debug: Print the command being run
+        print(f"DEBUG: Running: ollama run {MODEL} '{prompt[:50]}...'")
+        
         result = subprocess.run(
             ["ollama", "run", MODEL, prompt],
             capture_output=True,
@@ -23,8 +26,11 @@ def call_llm(prompt: str) -> str:
             check=True
         )
         return result.stdout.strip()
+    except subprocess.CalledProcessError as e:
+        # This will tell us EXACTLY why Ollama is failing
+        return f"LLM_FAILED: {e.stderr.strip()}"
     except Exception as e:
-        return f"Error calling LLM: {e}"
+        return f"LLM_ERROR: {str(e)}"
 
 def fix_titles(df: pd.DataFrame, issues: list[dict]) -> list[dict]:
     """

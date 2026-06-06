@@ -115,9 +115,9 @@ def detect(df: pd.DataFrame) -> list[dict]:
     add("redirect_chain", "High", chain_urls, "Redirects that point to another redirect (chains).")
 
     # --- Content & Indexability ---
-    # thin_content: Word Count < 200 on an indexable page
-    thin_urls = df[is_indexable & (df['Word Count'] < 200)]['Address'].tolist()
-    add("thin_content", "Low", thin_urls, "Indexable pages with very low word count (< 200).")
+    # thin_content: Word Count < 200 on an indexable HTML page
+    thin_urls = df[is_html & is_indexable & (df['Word Count'] < 200)]['Address'].tolist()
+    add("thin_content", "Low", thin_urls, "Indexable HTML pages with very low word count (< 200).")
 
     # non_indexable_but_linked: Indexability == 'Non-Indexable' AND Inlinks > 0
     non_idx_linked = df[(df['Indexability'].str.strip().str.lower() == 'non-indexable') & (df['Inlinks'] > 0)]['Address'].tolist()
