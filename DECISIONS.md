@@ -22,4 +22,6 @@ Format:
 ---
 
 ## My log
-- `[--:--]` ...
+- `[2026-06-06]` Decision: Used pandas for detection instead of iterative CSV parsing to improve performance and allow for vectorised logic.
+- `[2026-06-06]` Decision: Implemented graceful failure in fixer.py (returning LLM_FIX_FAILED) instead of crashing the pipeline, ensuring audit completeness despite transient network errors during LLM inference.
+- `[2026-06-06]` Decision: Commented out the server.start_dashboard() call in run.py to resolve port-binding conflicts during automated batch testing.

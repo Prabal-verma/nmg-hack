@@ -25,3 +25,11 @@ Format per entry:
 ## My prompts
 1. ...
 2. ...
+
+---
+
+## Project History
+- Built deterministic scanner using pandas to map 14 SEO rules from rulebook.md.
+- Implemented MCP server for real-time dashboarding.
+- Integrated fixer agent for AI-driven title rewrites with rate-limiting and length constraints.
+- Implemented graceful error handling in fixer.py to manage network-induced LLM inference failures.
