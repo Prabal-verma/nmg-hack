@@ -18,7 +18,7 @@ def load_rows(export_dir: str) -> pd.DataFrame:
 def detect(df: pd.DataFrame) -> list[dict]:
     """Return a list of issue dicts: {type, severity, affected_urls, count, explanation}.
 
-    Implements rules from rulebook.md using pandas.
+    Implements all rules from rulebook.md using pandas.
     """
     issues = []
 
@@ -30,11 +30,13 @@ def detect(df: pd.DataFrame) -> list[dict]:
 
     # --- Pre-processing / Helpers ---
     # Ensure numeric columns are actually numeric
-    df['Status Code'] = pd.to_numeric(df['Status Code'], errors='coerce')
-    df['Title 1 Length'] = pd.to_numeric(df['Title 1 Length'], errors='coerce')
-    df['Title 1 Pixel Width'] = pd.to_numeric(df['Title 1 Pixel Width'], errors='coerce')
-    df['Inlinks'] = pd.to_numeric(df['Inlinks'], errors='coerce')
-    df['Response Time'] = pd.to_numeric(df['Response Time'], errors='coerce')
+    numeric_cols = [
+        'Status Code', 'Title 1 Length', 'Title 1 Pixel Width',
+        'Inlinks', 'Response Time', 'Word Count', 'Meta Description 1 Length'
+    ]
+    for col in numeric_cols:
+        if col in df.columns:
+            df[col] = pd.to_numeric(df[col], errors='coerce')
 
     # Pre-filters
     is_html = df['Content Type'].str.contains('text/html', case=False, na=False)
@@ -50,7 +52,7 @@ def detect(df: pd.DataFrame) -> list[dict]:
     add("missing_title", "High", missing_title_urls, "Indexable pages with no title tag.")
 
     # duplicate_title: same Title 1 on 2+ indexable URLs
-    # Rule: Indexability == 'Indexable', ignore empty/non-HTML
+    # We only consider non-empty titles for duplication
     titles_df = df[is_html & is_indexable].copy()
     titles_df = titles_df[titles_df['Title 1'].notna() & (titles_df['Title 1'].str.strip() != '')]
     dup_title_mask = titles_df['Title 1'].duplicated(keep=False)
@@ -60,12 +62,37 @@ def detect(df: pd.DataFrame) -> list[dict]:
     too_long_mask = (df_idx200['Title 1 Pixel Width'] > 561) | (df_idx200['Title 1 Length'] > 60)
     add("title_too_long", "Medium", df_idx200[too_long_mask]['Address'].tolist(), "Titles likely truncated in search results.")
 
+    # title_too_short: Title 1 Length < 30 (and not empty)
+    too_short_mask = (df_idx200['Title 1 Length'] < 30) & (df_idx200['Title 1 Length'].notna())
+    add("title_too_short", "Low", df_idx200[too_short_mask]['Address'].tolist(), "Titles that are too short for optimal SEO.")
+
+    # --- Meta Descriptions ---
+    # missing_meta_description: Meta Description 1 empty, indexable 200 page
+    missing_meta_urls = df_idx200[df_idx200['Meta Description 1'].isna() | (df_idx200['Meta Description 1'].str.strip() == '')]['Address'].tolist()
+    add("missing_meta_description", "Medium", missing_meta_urls, "Indexable pages missing a meta description.")
+
+    # duplicate_meta_description: same meta on 2+ indexable URLs (ignore empty)
+    meta_df = df[is_html & is_indexable].copy()
+    meta_df = meta_df[meta_df['Meta Description 1'].notna() & (meta_df['Meta Description 1'].str.strip() != '')]
+    dup_meta_mask = meta_df['Meta Description 1'].duplicated(keep=False)
+    add("duplicate_meta_description", "Medium", meta_df[dup_meta_mask]['Address'].tolist(), "Pages sharing an identical meta description.")
+
+    # meta_description_too_long: Meta Description 1 Length > 155
+    too_long_meta_mask = (df_idx200['Meta Description 1 Length'] > 155)
+    add("meta_description_too_long", "Low", df_idx200[too_long_meta_mask]['Address'].tolist(), "Meta descriptions likely truncated in search results.")
+
     # --- H1 ---
     # missing_h1: H1-1 empty on a 200 page
     missing_h1_urls = df[is_200 & (df['H1-1'].isna() | (df['H1-1'].str.strip() == ''))]['Address'].tolist()
     add("missing_h1", "Medium", missing_h1_urls, "200 pages missing an H1 tag.")
 
-    # --- Response codes ---
+    # duplicate_h1: same H1-1 on 2+ indexable URLs
+    h1_df = df[is_html & is_indexable].copy()
+    h1_df = h1_df[h1_df['H1-1'].notna() & (h1_df['H1-1'].str.strip() != '')]
+    dup_h1_mask = h1_df['H1-1'].duplicated(keep=False)
+    add("duplicate_h1", "Low", h1_df[dup_h1_mask]['Address'].tolist(), "Pages sharing an identical H1 header.")
+
+    # --- Response codes & Redirects ---
     # broken_link: Status Code in 400–499
     broken_links = df[(df['Status Code'] >= 400) & (df['Status Code'] <= 499)]['Address'].tolist()
     add("broken_link", "High", broken_links, "URLs returning a client error (4xx).")
@@ -75,13 +102,35 @@ def detect(df: pd.DataFrame) -> list[dict]:
     add("server_error", "High", server_errors, "URLs returning a server error (5xx).")
 
     # redirect: Status Code in 300–399
-    redirects = df[(df['Status Code'] >= 300) & (df['Status Code'] <= 399)]['Address'].tolist()
+    is_redirect = (df['Status Code'] >= 300) & (df['Status Code'] <= 399)
+    redirects = df[is_redirect]['Address'].tolist()
     add("redirect", "Medium", redirects, "URLs that redirect (3xx).")
 
-    # --- Orphan pages ---
+    # redirect_chain: a redirect whose Redirect URL is itself a redirecting URL
+    # Map of {Address: Redirect URL}
+    redirect_map = df[is_redirect].set_index('Address')['Redirect URL'].to_dict()
+    # A chain exists if the target (Redirect URL) is also a source (Address) of another redirect
+    redirecting_addresses = set(redirect_map.keys())
+    chain_urls = [addr for addr, target in redirect_map.items() if target in redirecting_addresses]
+    add("redirect_chain", "High", chain_urls, "Redirects that point to another redirect (chains).")
+
+    # --- Content & Indexability ---
+    # thin_content: Word Count < 200 on an indexable page
+    thin_urls = df[is_indexable & (df['Word Count'] < 200)]['Address'].tolist()
+    add("thin_content", "Low", thin_urls, "Indexable pages with very low word count (< 200).")
+
+    # non_indexable_but_linked: Indexability == 'Non-Indexable' AND Inlinks > 0
+    non_idx_linked = df[(df['Indexability'].str.strip().str.lower() == 'non-indexable') & (df['Inlinks'] > 0)]['Address'].tolist()
+    add("non_indexable_but_linked", "Medium", non_idx_linked, "Pages marked Non-Indexable but still receiving internal links.")
+
     # orphan_page: Inlinks = 0 on an indexable 200 page
     orphan_urls = df_idx200[df_idx200['Inlinks'] == 0]['Address'].tolist()
     add("orphan_page", "Medium", orphan_urls, "Indexable pages with zero internal links in.")
+
+    # --- Performance ---
+    # slow_page: Response Time > 1.0
+    slow_urls = df[df['Response Time'] > 1.0]['Address'].tolist()
+    add("slow_page", "Low", slow_urls, "Pages with a response time greater than 1 second.")
 
     return issues
 
