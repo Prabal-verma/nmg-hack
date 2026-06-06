@@ -472,107 +472,107 @@
       {
         "url": "https://nmgtechnologies.com/blog",
         "old": "Blog",
-        "new": "Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', \"The title 'Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', 'You are an SEO expert. Rewrite this title to be under 60 characters and highly relevant to the URL. URL: https://nmgtechnologies.com/blog. Old Title: Blog. Return ONLY the new title text.']' returned non-zero exit status 1.' is too long. Please rewrite it to be under 60 characters. Provide ONLY the text.\"]' returned non-zero exit status 1."
+        "new": "LLM_FIX_FAILED"
       },
       {
         "url": "https://nmgtechnologies.com/blog/author/nishtha",
         "old": "Blog | Nishtha",
-        "new": "Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', \"The title 'Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', 'You are an SEO expert. Rewrite this title to be under 60 characters and highly relevant to the URL. URL: https://nmgtechnologies.com/blog/author/nishtha. Old Title: Blog | Nishtha. Return ONLY the new title text.']' returned non-zero exit status 1.' is too long. Please rewrite it to be under 60 characters. Provide ONLY the text.\"]' returned non-zero exit status 1."
+        "new": "LLM_FIX_FAILED"
       },
       {
         "url": "https://nmgtechnologies.com/blog/tag/design",
         "old": "Blog | Design",
-        "new": "Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', \"The title 'Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', 'You are an SEO expert. Rewrite this title to be under 60 characters and highly relevant to the URL. URL: https://nmgtechnologies.com/blog/tag/design. Old Title: Blog | Design. Return ONLY the new title text.']' returned non-zero exit status 1.' is too long. Please rewrite it to be under 60 characters. Provide ONLY the text.\"]' returned non-zero exit status 1."
+        "new": "LLM_FIX_FAILED"
       },
       {
         "url": "https://nmgtechnologies.com/blog/tag/events",
         "old": "Blog | Events",
-        "new": "Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', \"The title 'Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', 'You are an SEO expert. Rewrite this title to be under 60 characters and highly relevant to the URL. URL: https://nmgtechnologies.com/blog/tag/events. Old Title: Blog | Events. Return ONLY the new title text.']' returned non-zero exit status 1.' is too long. Please rewrite it to be under 60 characters. Provide ONLY the text.\"]' returned non-zero exit status 1."
+        "new": "LLM_FIX_FAILED"
       },
       {
         "url": "https://nmgtechnologies.com/blog/tag/events/page/2",
         "old": "Blog | Events (2)",
-        "new": "Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', \"The title 'Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', 'You are an SEO expert. Rewrite this title to be under 60 characters and highly relevant to the URL. URL: https://nmgtechnologies.com/blog/tag/events/page/2. Old Title: Blog | Events (2). Return ONLY the new title text.']' returned non-zero exit status 1.' is too long. Please rewrite it to be under 60 characters. Provide ONLY the text.\"]' returned non-zero exit status 1."
+        "new": "LLM_FIX_FAILED"
       },
       {
         "url": "https://nmgtechnologies.com/blog/tag/featured",
         "old": "Blog | Featured",
-        "new": "Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', \"The title 'Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', 'You are an SEO expert. Rewrite this title to be under 60 characters and highly relevant to the URL. URL: https://nmgtechnologies.com/blog/tag/featured. Old Title: Blog | Featured. Return ONLY the new title text.']' returned non-zero exit status 1.' is too long. Please rewrite it to be under 60 characters. Provide ONLY the text.\"]' returned non-zero exit status 1."
+        "new": "LLM_FIX_FAILED"
       },
       {
         "url": "https://nmgtechnologies.com/blog/tag/growth",
         "old": "Blog | Growth",
-        "new": "Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', \"The title 'Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', 'You are an SEO expert. Rewrite this title to be under 60 characters and highly relevant to the URL. URL: https://nmgtechnologies.com/blog/tag/growth. Old Title: Blog | Growth. Return ONLY the new title text.']' returned non-zero exit status 1.' is too long. Please rewrite it to be under 60 characters. Provide ONLY the text.\"]' returned non-zero exit status 1."
+        "new": "LLM_FIX_FAILED"
       },
       {
         "url": "https://nmgtechnologies.com/blog/tag/marketing",
         "old": "Blog | Marketing",
-        "new": "Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', \"The title 'Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', 'You are an SEO expert. Rewrite this title to be under 60 characters and highly relevant to the URL. URL: https://nmgtechnologies.com/blog/tag/marketing. Old Title: Blog | Marketing. Return ONLY the new title text.']' returned non-zero exit status 1.' is too long. Please rewrite it to be under 60 characters. Provide ONLY the text.\"]' returned non-zero exit status 1."
+        "new": "LLM_FIX_FAILED"
       },
       {
         "url": "https://nmgtechnologies.com/blog/tag/mobile",
         "old": "Blog | Mobile",
-        "new": "Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', \"The title 'Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', 'You are an SEO expert. Rewrite this title to be under 60 characters and highly relevant to the URL. URL: https://nmgtechnologies.com/blog/tag/mobile. Old Title: Blog | Mobile. Return ONLY the new title text.']' returned non-zero exit status 1.' is too long. Please rewrite it to be under 60 characters. Provide ONLY the text.\"]' returned non-zero exit status 1."
+        "new": "LLM_FIX_FAILED"
       },
       {
         "url": "https://nmgtechnologies.com/blog/tag/outsourcing",
         "old": "Blog | Outsourcing",
-        "new": "Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', \"The title 'Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', 'You are an SEO expert. Rewrite this title to be under 60 characters and highly relevant to the URL. URL: https://nmgtechnologies.com/blog/tag/outsourcing. Old Title: Blog | Outsourcing. Return ONLY the new title text.']' returned non-zero exit status 1.' is too long. Please rewrite it to be under 60 characters. Provide ONLY the text.\"]' returned non-zero exit status 1."
+        "new": "LLM_FIX_FAILED"
       },
       {
         "url": "https://nmgtechnologies.com/blog/tag/technology",
         "old": "Blog | Technology",
-        "new": "Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', \"The title 'Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', 'You are an SEO expert. Rewrite this title to be under 60 characters and highly relevant to the URL. URL: https://nmgtechnologies.com/blog/tag/technology. Old Title: Blog | Technology. Return ONLY the new title text.']' returned non-zero exit status 1.' is too long. Please rewrite it to be under 60 characters. Provide ONLY the text.\"]' returned non-zero exit status 1."
+        "new": "LLM_FIX_FAILED"
       },
       {
         "url": "https://nmgtechnologies.com/blog/tag/web",
         "old": "Blog | Web",
-        "new": "Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', \"The title 'Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', 'You are an SEO expert. Rewrite this title to be under 60 characters and highly relevant to the URL. URL: https://nmgtechnologies.com/blog/tag/web. Old Title: Blog | Web. Return ONLY the new title text.']' returned non-zero exit status 1.' is too long. Please rewrite it to be under 60 characters. Provide ONLY the text.\"]' returned non-zero exit status 1."
+        "new": "LLM_FIX_FAILED"
       },
       {
         "url": "https://nmgtechnologies.com/contact-us",
         "old": "Contact Us - NMG Technologies",
-        "new": "Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', \"The title 'Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', 'You are an SEO expert. Rewrite this title to be under 60 characters and highly relevant to the URL. URL: https://nmgtechnologies.com/contact-us. Old Title: Contact Us - NMG Technologies. Return ONLY the new title text.']' returned non-zero exit status 1.' is too long. Please rewrite it to be under 60 characters. Provide ONLY the text.\"]' returned non-zero exit status 1."
+        "new": "LLM_FIX_FAILED"
       },
       {
         "url": "https://nmgtechnologies.com/disclaimer",
         "old": "Website Disclaimer",
-        "new": "Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', \"The title 'Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', 'You are an SEO expert. Rewrite this title to be under 60 characters and highly relevant to the URL. URL: https://nmgtechnologies.com/disclaimer. Old Title: Website Disclaimer. Return ONLY the new title text.']' returned non-zero exit status 1.' is too long. Please rewrite it to be under 60 characters. Provide ONLY the text.\"]' returned non-zero exit status 1."
+        "new": "LLM_FIX_FAILED"
       },
       {
         "url": "https://nmgtechnologies.com/services/crm-development",
         "old": "CRM Development Services",
-        "new": "Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', \"The title 'Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', 'You are an SEO expert. Rewrite this title to be under 60 characters and highly relevant to the URL. URL: https://nmgtechnologies.com/services/crm-development. Old Title: CRM Development Services. Return ONLY the new title text.']' returned non-zero exit status 1.' is too long. Please rewrite it to be under 60 characters. Provide ONLY the text.\"]' returned non-zero exit status 1."
+        "new": "LLM_FIX_FAILED"
       },
       {
         "url": "https://nmgtechnologies.com/services/dedicated-team-setups/",
         "old": "Dedicated Team Setups",
-        "new": "Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', \"The title 'Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', 'You are an SEO expert. Rewrite this title to be under 60 characters and highly relevant to the URL. URL: https://nmgtechnologies.com/services/dedicated-team-setups/. Old Title: Dedicated Team Setups. Return ONLY the new title text.']' returned non-zero exit status 1.' is too long. Please rewrite it to be under 60 characters. Provide ONLY the text.\"]' returned non-zero exit status 1."
+        "new": "LLM_FIX_FAILED"
       },
       {
         "url": "https://nmgtechnologies.com/services/erp-development",
         "old": "ERP Development",
-        "new": "Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', \"The title 'Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', 'You are an SEO expert. Rewrite this title to be under 60 characters and highly relevant to the URL. URL: https://nmgtechnologies.com/services/erp-development. Old Title: ERP Development. Return ONLY the new title text.']' returned non-zero exit status 1.' is too long. Please rewrite it to be under 60 characters. Provide ONLY the text.\"]' returned non-zero exit status 1."
+        "new": "LLM_FIX_FAILED"
       },
       {
         "url": "https://nmgtechnologies.com/services/shopify",
         "old": "Shopify Development",
-        "new": "Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', \"The title 'Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', 'You are an SEO expert. Rewrite this title to be under 60 characters and highly relevant to the URL. URL: https://nmgtechnologies.com/services/shopify. Old Title: Shopify Development. Return ONLY the new title text.']' returned non-zero exit status 1.' is too long. Please rewrite it to be under 60 characters. Provide ONLY the text.\"]' returned non-zero exit status 1."
+        "new": "LLM_FIX_FAILED"
       },
       {
         "url": "https://nmgtechnologies.com/services/web-development",
         "old": "Web Development",
-        "new": "Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', \"The title 'Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', 'You are an SEO expert. Rewrite this title to be under 60 characters and highly relevant to the URL. URL: https://nmgtechnologies.com/services/web-development. Old Title: Web Development. Return ONLY the new title text.']' returned non-zero exit status 1.' is too long. Please rewrite it to be under 60 characters. Provide ONLY the text.\"]' returned non-zero exit status 1."
+        "new": "LLM_FIX_FAILED"
       },
       {
         "url": "https://nmgtechnologies.com/sitemap",
         "old": "Sitemap - NMG Technologies",
-        "new": "Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', \"The title 'Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', 'You are an SEO expert. Rewrite this title to be under 60 characters and highly relevant to the URL. URL: https://nmgtechnologies.com/sitemap. Old Title: Sitemap - NMG Technologies. Return ONLY the new title text.']' returned non-zero exit status 1.' is too long. Please rewrite it to be under 60 characters. Provide ONLY the text.\"]' returned non-zero exit status 1."
+        "new": "LLM_FIX_FAILED"
       },
       {
         "url": "https://nmgtechnologies.com/wordpress-development",
         "old": "WordPress Development",
-        "new": "Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', \"The title 'Error calling LLM: Command '['ollama', 'run', 'qwen3.5:9b', 'You are an SEO expert. Rewrite this title to be under 60 characters and highly relevant to the URL. URL: https://nmgtechnologies.com/wordpress-development. Old Title: WordPress Development. Return ONLY the new title text.']' returned non-zero exit status 1.' is too long. Please rewrite it to be under 60 characters. Provide ONLY the text.\"]' returned non-zero exit status 1."
+        "new": "LLM_FIX_FAILED"
       }
     ]
   },
@@ -586,6 +586,6 @@
   "run_meta": {
     "model": "qwen3.5:9b",
     "model_calls": 0,
-    "duration_sec": 102.6
+    "duration_sec": 39.7
   }
 }

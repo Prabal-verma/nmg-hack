@@ -12,12 +12,12 @@ import time
 # Get the model from env or default to qwen3.5:9b
 MODEL = os.environ.get("RADAR_MODEL", "qwen3.5:9b")
 
-def call_llm(prompt: str) -> str:
-    """Calls the local Ollama model for a response."""
+def call_llm(prompt: str) -> str | None:
+    """Calls the local Ollama model for a response. Returns None on failure."""
     try:
         # Debug: Print the command being run
         print(f"DEBUG: Running: ollama run {MODEL} '{prompt[:50]}...'")
-        
+
         result = subprocess.run(
             ["ollama", "run", MODEL, prompt],
             capture_output=True,
@@ -26,11 +26,9 @@ def call_llm(prompt: str) -> str:
             check=True
         )
         return result.stdout.strip()
-    except subprocess.CalledProcessError as e:
-        # This will tell us EXACTLY why Ollama is failing
-        return f"LLM_FAILED: {e.stderr.strip()}"
     except Exception as e:
-        return f"LLM_ERROR: {str(e)}"
+        print(f"DEBUG: LLM Call Failed: {e}")
+        return None
 
 def fix_titles(df: pd.DataFrame, issues: list[dict]) -> list[dict]:
     """
@@ -62,15 +60,15 @@ def fix_titles(df: pd.DataFrame, issues: list[dict]) -> list[dict]:
         new_title = call_llm(prompt)
         time.sleep(0.5)
 
-        # Basic validation: retry if too long (simple version)
-        if len(new_title) > 60:
+        # Basic validation: retry if too long and we actually got a response
+        if new_title and len(new_title) > 60:
             retry_prompt = f"The title '{new_title}' is too long. Please rewrite it to be under 60 characters. Provide ONLY the text."
             new_title = call_llm(retry_prompt)
 
         fixes.append({
             "url": url,
             "old": old_title if pd.notna(old_title) else "",
-            "new": new_title
+            "new": new_title if new_title else "LLM_FIX_FAILED"
         })
 
     return fixes
