@@ -35,6 +35,8 @@ def main():
     t0 = time.time()
     server.seo_load(args.export_dir)
     res = server.seo_detect()
+    server.seo_fix_titles()
+
 
     # starter recommendations from the detected issues (the skill writes richer ones)
     issues = sorted(server.RUN["issues"], key=lambda x: {"High":0,"Medium":1,"Low":2}.get(x["severity"],3))

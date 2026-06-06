@@ -23,7 +23,7 @@ MODEL = os.environ.get("RADAR_MODEL", "qwen3.5:9b")
 
 import sys
 sys.path.insert(0, ROOT)
-from seo import detector  # noqa: E402
+from seo import detector, fixer  # noqa: E402
 
 RUN = {"site": None, "urls": 0, "issues": [], "summary": None, "status": "idle"}
 _subs: list[queue.Queue] = []
@@ -56,6 +56,26 @@ def _guess_site(rows):
     except Exception:
         return "unknown"
 
+
+def seo_fix_titles() -> dict:
+    rows = RUN.get("rows")
+    issues = RUN.get("issues", [])
+    if rows is None:
+        return {"error": "No rows loaded"}
+
+    fixes = fixer.fix_titles(rows, issues)
+
+    # Save to CSV as requested
+    out_path = os.path.join(OUT_DIR, "fixes_titles.csv")
+    os.makedirs(OUT_DIR, exist_ok=True)
+    fixer.write_fixes_csv(fixes, out_path)
+
+    # Also store in RUN for the report
+    RUN["fixes"] = RUN.get("fixes", {})
+    RUN["fixes"]["titles"] = fixes
+
+    _emit("fixes", {"titles": fixes})
+    return {"fixed_count": len(fixes), "path": out_path}
 
 def seo_detect() -> dict:
     issues = detector.detect(RUN.get("rows", []))
@@ -181,6 +201,11 @@ def _run_mcp():
         print(f"[seo] MCP SDK not found. Dashboard only at http://localhost:{PORT}", flush=True)
         while True: time.sleep(3600)
     mcp = FastMCP("seo-command-center")
+
+    @mcp.tool()
+    def fix_titles() -> dict:
+        """Generate optimized SEO titles for pages with missing or short titles."""
+        return seo_fix_titles()
 
     @mcp.tool()
     def load(export_dir: str) -> dict:

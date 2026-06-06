@@ -1,0 +1,83 @@
+"""
+fixer.py — Model-driven SEO fixes.
+"""
+
+from __future__ import annotations
+import pandas as pd
+import subprocess
+import os
+import csv
+
+# Get the model from env or default to qwen3.5:9b
+MODEL = os.environ.get("RADAR_MODEL", "qwen3.5:9b")
+
+def call_llm(prompt: str) -> str:
+    """Calls the local Ollama model for a response."""
+    try:
+        result = subprocess.run(
+            ["ollama", "run", MODEL, prompt],
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            check=True
+        )
+        return result.stdout.strip()
+    except Exception as e:
+        return f"Error calling LLM: {e}"
+
+def fix_titles(df: pd.DataFrame, issues: list[dict]) -> list[dict]:
+    """
+    Fixes missing and too-short titles using the local LLM.
+    Returns a list of {url, old, new}.
+    """
+    fixes = []
+
+    # Identify URLs needing title fixes
+    urls_to_fix = []
+    for issue in issues:
+        if issue['type'] in ('missing_title', 'title_too_short'):
+            urls_to_fix.extend(issue['affected_urls'])
+
+    urls_to_fix = sorted(list(set(urls_to_fix)))
+
+    for url in urls_to_fix:
+        # Gather context for the LLM
+        row = df[df['Address'] == url].iloc[0]
+        old_title = row.get('Title 1', '')
+        h1 = row.get('H1-1', 'No H1 found')
+
+        prompt = (
+            f"You are an SEO expert. Rewrite the page title for the following URL to be highly relevant, "
+            f"click-worthy, and optimized for search engines.\n\n"
+            f"URL: {url}\n"
+            f"Current Title: {old_title}\n"
+            f"H1 Header: {h1}\n\n"
+            f"Constraint: The new title MUST be under 60 characters. "
+            f"Provide ONLY the new title text, no explanations or quotes."
+        )
+
+        new_title = call_llm(prompt)
+
+        # Basic validation: retry if too long (simple version)
+        if len(new_title) > 60:
+            retry_prompt = f"The title '{new_title}' is too long. Please rewrite it to be under 60 characters. Provide ONLY the text."
+            new_title = call_llm(retry_prompt)
+
+        fixes.append({
+            "url": url,
+            "old": old_title if pd.notna(old_title) else "",
+            "new": new_title
+        })
+
+    return fixes
+
+def write_fixes_csv(fixes: list[dict], output_path: str):
+    """Writes the fixes to a CSV file."""
+    if not fixes:
+        return
+
+    keys = fixes[0].keys()
+    with open(output_path, 'w', newline='', encoding='utf-8') as f:
+        dict_writer = csv.DictWriter(f, fieldnames=keys)
+        dict_writer.writeheader()
+        dict_writer.writerows(fixes)
